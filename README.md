@@ -21,28 +21,6 @@ Criar uma aplicação desktop (interface gráfica e console) estruturada em **MV
 
 ---
 
-## 🗃️ Estrutura de Diretórios
-
-MUNICIPIOSBRASILEIROS/
-├── bin/ # Arquivos compilados (.class)
-├── lib/ # Biblioteca externa (MySQL Connector)
-├── src/
-│ ├── controller/ # Classe controller (lógica de aplicação)
-│ ├── dao/ # DAO para acesso ao banco de dados
-│ ├── Model/ # Modelo de dados (classe Municipio)
-│ ├── repository/ # Repositório intermediário entre controller e DAO
-│ ├── view/ # Interfaces gráfica (GUI) e console
-│ ├── Main.java # Importador CSV → MySQL
-├── 2022_IBGE -Municipios.csv # Arquivo de dados base (IBGE 2022)
-├── cidades.sql # Script SQL para criação do banco
-├── README.md # Este arquivo :)
-
-sql
-Copiar
-Editar
-
----
-
 ## ⚙️ Instalação e Execução
 
 ### 1. Configurar o banco MySQL
@@ -66,9 +44,6 @@ CREATE TABLE IF NOT EXISTS municipios (
 2. Importar os Dados do CSV
 Compile e execute o Main.java, que lê o CSV e popula o banco de dados:
 
-bash
-Copiar
-Editar
 javac -cp "lib/mysql-connector-j-9.3.0.jar" src/Main.java -d bin
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" Main
 💡 Ajuste as credenciais e caminhos no código se necessário:
@@ -98,17 +73,11 @@ A aplicação pode ser executada por linha de comando ou por interface gráfica.
 💻 Modo Console
 Execute o TelaPrincipal.java:
 
-bash
-Copiar
-Editar
 javac -cp "lib/mysql-connector-j-9.3.0.jar" -d bin src/view/TelaPrincipal.java
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" view.TelaPrincipal
 🖥️ Modo GUI
 Execute o TelaMunicipiosGUI.java:
 
-bash
-Copiar
-Editar
 javac -cp "lib/mysql-connector-j-9.3.0.jar" -d bin src/view/TelaMunicipiosGUI.java
 java -cp "bin;lib/mysql-connector-j-9.3.0.jar" view.TelaMunicipiosGUI
 🏗️ Arquitetura
@@ -131,9 +100,7 @@ Main.java
 
 Exemplo:
 
-java
-Copiar
-Editar
+
 private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cidades?useSSL=false&serverTimezone=America/Sao_Paulo";
 private static final String USER = "root";
 private static final String PASSWORD = "sua_senha";
