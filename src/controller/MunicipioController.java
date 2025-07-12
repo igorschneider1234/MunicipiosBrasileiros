@@ -1,40 +1,39 @@
-// MunicipioController.java
 package controller;
 
-import dao.MunicipioDAO;
 import Model.Municipio;
+import repository.MunicipioRepository;
 
 import java.util.List;
 import java.util.Map;
 
 public class MunicipioController {
-    private MunicipioDAO dao = new MunicipioDAO();
+    private MunicipioRepository repository = new MunicipioRepository();
 
     public Municipio buscarMunicipio(String nome) {
-        return dao.buscarPorNome(nome);
+        return repository.buscarPorNome(nome);
     }
 
     public int calcularPopulacaoEstado(String estado) {
-        return dao.calcularPopulacaoTotalPorEstado(estado);
+        return repository.calcularPopulacaoTotalPorEstado(estado);
     }
 
     public List<Municipio> listarCapitais() {
-        return dao.listarCapitais();
+        return repository.listarCapitais();
     }
 
     public List<Municipio> listarPorPopulacaoMinima(int min) {
-        return dao.listarPorPopulacaoMinima(min);
+        return repository.listarPorPopulacaoMinima(min);
     }
 
     public List<Municipio> listarPorPopulacaoEntre(int min, int max) {
-        return dao.listarPorPopulacaoEntre(min, max);
+        return repository.listarPorPopulacaoEntre(min, max);
     }
 
     public Map<String, Municipio> listarMaisPopulososNaoCapitaisPorEstado() {
-        return dao.listarMaisPopulososNaoCapitaisPorEstado();
+        return repository.listarMaisPopulososNaoCapitaisPorEstado();
     }
 
     public List<Municipio> top10MaisPopulososNaoCapitais() {
-        return dao.top10MaisPopulososNaoCapitais();
+        return repository.top10MaisPopulososNaoCapitais();
     }
 }
